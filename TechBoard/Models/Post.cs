@@ -16,7 +16,7 @@ namespace TechBoard.Models
         public string UserName { get; set; }
 
         [ForeignKey("Thread")]
-        public int ThreadtRefId { get; set; }
+        public int ThreadRefId { get; set; }
         public Thread Thread { get; set; }
     }
 }
