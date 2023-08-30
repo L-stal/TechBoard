@@ -15,6 +15,7 @@ html {
 }
 
 body {
+    font-family: 'Work Sans', sans-serif;
     margin: 1rem auto;
     margin-bottom: 60px;
     width: 1000px;
@@ -38,15 +39,19 @@ a {
 a {
 }
 .nav-link {
-
-    font-family: Arial;
     color: #101d2a;
     font-weight: 400;
-
+    display: flex;
+    gap: .5rem;
 }
 
-.navbar-brand {
-    font-family: Arial;
-    font-size: 1.5rem;
-    font-weight: 400;
-}
+    .nav-link > i{
+        align-self: center;
+        
+    }
+
+    .navbar-brand {
+        font-family: Arial;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
