@@ -49,16 +49,17 @@ button.accept-policy {
 }
 
 main {
-    margin: 0 auto;
+    margin: .5rem;
     background: #ffffff;
-    padding: 1rem;
     border-radius: 1rem;
-    /*box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);*/
 
     width: 100%;
 }
+
 .sidebar {
     background: #f7f9fd;
+    border-radius: .25rem;
+    margin: .5rem;
 }
 
 .navbar-nav{
