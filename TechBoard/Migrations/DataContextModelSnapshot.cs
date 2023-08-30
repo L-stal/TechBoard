@@ -49,6 +49,32 @@ namespace TechBoard.Migrations
                     b.HasIndex("ThreadRefId");
 
                     b.ToTable("Post");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            TextBody = "Nvidia blabalbla",
+                            ThreadRefId = 1,
+                            Title = "Nvidia",
+                            UserName = "GPUuser"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            TextBody = "Windows blabalbla",
+                            ThreadRefId = 2,
+                            Title = "Windows",
+                            UserName = "OSuser"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            TextBody = "Shaman blabalbla",
+                            ThreadRefId = 3,
+                            Title = "Shaman",
+                            UserName = "WOWuser"
+                        });
                 });
 
             modelBuilder.Entity("TechBoard.Models.Subject", b =>
@@ -66,6 +92,23 @@ namespace TechBoard.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Subject");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Title = "Hardware"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Title = "Software"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Title = "Games"
+                        });
                 });
 
             modelBuilder.Entity("TechBoard.Models.Thread", b =>
@@ -88,6 +131,26 @@ namespace TechBoard.Migrations
                     b.HasIndex("SubjectRefId");
 
                     b.ToTable("Thread");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Heading = "GPU",
+                            SubjectRefId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Heading = "OS",
+                            SubjectRefId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Heading = "WorldOfWarcraft",
+                            SubjectRefId = 3
+                        });
                 });
 
             modelBuilder.Entity("TechBoard.Models.Post", b =>
