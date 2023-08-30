@@ -1,22 +1,6 @@
-﻿@model List<ThreadViewModel>;
-
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="forum">
-    <div class="forum-header">
-        <h4>Topic</h4>
-        <h4>Replies</h4>
-
-    </div>
-
-    @foreach (var thread in Model)
-    {
-        @Html.Partial("_ThreadBox", thread)
-    }
-
-</div>
 
 <div class="hero">
     <h1>TechBoard</h1>
