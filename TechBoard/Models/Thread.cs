@@ -9,7 +9,7 @@ namespace TechBoard.Models
         public int Id { get; set; }
 
         [Required]
-        public int Heading { get; set; }
+        public string Heading { get; set; }
 
         [ForeignKey("Subject")]
         public int SubjectRefId { get; set; }
