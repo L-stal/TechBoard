@@ -11,22 +11,22 @@ html {
 html {
     position: relative;
     min-height: 100%;
-    background: #435867;
+    background: #e1e7f0;
 }
 
 body {
     margin: 1rem auto;
     margin-bottom: 60px;
     width: 1000px;
-    min-height: 1000px;
-    background: linear-gradient(180deg, rgba(69,112,130,1) 0%, rgba(104,127,135,1) 100%);
+    /*min-height: 1000px;*/
+    background: #ffffff;
     border-radius: 1.5rem;
     box-shadow: 0px 0.2px 1.2px rgba(0, 0, 0, 0.002), 0px 0.4px 2.7px rgba(0, 0, 0, 0.003), 0px 0.7px 4.6px rgba(0, 0, 0, 0.004), 0px 1.1px 6.9px rgba(0, 0, 0, 0.004), 0px 1.6px 10px rgba(0, 0, 0, 0.005), 0px 2.3px 14.2px rgba(0, 0, 0, 0.006), 0px 3.3px 20.1px rgba(0, 0, 0, 0.006), 0px 4.7px 29.2px rgba(0, 0, 0, 0.007), 0px 7.3px 45px rgba(0, 0, 0, 0.008), 0px 13px 80px rgba(0, 0, 0, 0.01);
     padding: 1rem;
 }
 
 a {
-    color: #eff5f5;
+    color: #101d2a;
 }
 
 .container {
@@ -38,7 +38,7 @@ a {
 a {
 }
 .nav-link {
-    color: #eff5f5;
+    color: #101d2a;
     font-weight: 600;
 }
 
