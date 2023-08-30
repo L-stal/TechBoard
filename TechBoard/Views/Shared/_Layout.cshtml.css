@@ -17,11 +17,12 @@ a {
   border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
+/*.nav-pills .nav-link.active, .nav-pills .show > .nav-link {*/
+/*  color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
-}
+  font-weight: 100;*/
+/*}*/
 
 .border-top {
   border-top: 1px solid #e5e5e5;
@@ -50,11 +51,17 @@ button.accept-policy {
 main {
     margin: 0 auto;
     background: #ffffff;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 1rem;
     /*box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);*/
 
     width: 100%;
 }
 .sidebar {
+    background: #f7f9fd;
+}
+
+.navbar-nav{
+    padding: 1rem 2rem;
+    
 }
