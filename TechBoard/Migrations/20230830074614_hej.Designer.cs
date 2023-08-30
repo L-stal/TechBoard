@@ -11,8 +11,8 @@ using TechBoard.Data;
 namespace TechBoard.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230829130415_bump")]
-    partial class bump
+    [Migration("20230830074614_hej")]
+    partial class hej
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,7 +36,7 @@ namespace TechBoard.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ThreadtRefId")
+                    b.Property<int>("ThreadRefId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -49,7 +49,7 @@ namespace TechBoard.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ThreadtRefId");
+                    b.HasIndex("ThreadRefId");
 
                     b.ToTable("Post");
                 });
@@ -79,8 +79,9 @@ namespace TechBoard.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Heading")
-                        .HasColumnType("int");
+                    b.Property<string>("Heading")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SubjectRefId")
                         .HasColumnType("int");
@@ -96,7 +97,7 @@ namespace TechBoard.Migrations
                 {
                     b.HasOne("TechBoard.Models.Thread", "Thread")
                         .WithMany()
-                        .HasForeignKey("ThreadtRefId")
+                        .HasForeignKey("ThreadRefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
