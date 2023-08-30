@@ -2,10 +2,12 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace TechBoard.Migrations
 {
     /// <inheritdoc />
-    public partial class hej : Migration
+    public partial class First : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -63,6 +65,36 @@ namespace TechBoard.Migrations
                         principalTable: "Thread",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Subject",
+                columns: new[] { "Id", "Title" },
+                values: new object[,]
+                {
+                    { 1, "Hardware" },
+                    { 2, "Software" },
+                    { 3, "Games" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Thread",
+                columns: new[] { "Id", "Heading", "SubjectRefId" },
+                values: new object[,]
+                {
+                    { 1, "GPU", 1 },
+                    { 2, "OS", 2 },
+                    { 3, "WorldOfWarcraft", 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Post",
+                columns: new[] { "Id", "TextBody", "ThreadRefId", "Title", "UserName" },
+                values: new object[,]
+                {
+                    { 1, "Nvidia blabalbla", 1, "Nvidia", "GPUuser" },
+                    { 2, "Windows blabalbla", 2, "Windows", "OSuser" },
+                    { 3, "Shaman blabalbla", 3, "Shaman", "WOWuser" }
                 });
 
             migrationBuilder.CreateIndex(
