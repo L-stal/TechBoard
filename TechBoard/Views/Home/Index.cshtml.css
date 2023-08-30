@@ -6,13 +6,25 @@
 }
 
 .forum-post {
-    /*background: #d1d1d1;*/
     border-radius: .5rem;
     margin: 1rem 0;
     padding: .5rem;
-    /*box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);*/
 }
 
 .post-title{
     font-weight: 800;
 }
+
+
+.hero {
+    background: #fcebe4;
+    height: 100%;
+    padding: 2rem;
+    border-radius: 1rem;
+    border-radius: 1rem;
+}
+
+
+    .hero h1, .hero h3 {
+        color: #e47748;
+    }
