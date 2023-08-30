@@ -1,4 +1,4 @@
-namespace TechBoard.Models.ViewModels
+namespace TechBoard.Models
 {
     public class ErrorViewModel
     {

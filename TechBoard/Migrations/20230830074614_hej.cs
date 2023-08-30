@@ -5,7 +5,7 @@
 namespace TechBoard.Migrations
 {
     /// <inheritdoc />
-    public partial class bump : Migration
+    public partial class hej : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -29,7 +29,7 @@ namespace TechBoard.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Heading = table.Column<int>(type: "int", nullable: false),
+                    Heading = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SubjectRefId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -52,23 +52,23 @@ namespace TechBoard.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TextBody = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ThreadtRefId = table.Column<int>(type: "int", nullable: false)
+                    ThreadRefId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Post", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Post_Thread_ThreadtRefId",
-                        column: x => x.ThreadtRefId,
+                        name: "FK_Post_Thread_ThreadRefId",
+                        column: x => x.ThreadRefId,
                         principalTable: "Thread",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Post_ThreadtRefId",
+                name: "IX_Post_ThreadRefId",
                 table: "Post",
-                column: "ThreadtRefId");
+                column: "ThreadRefId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Thread_SubjectRefId",
