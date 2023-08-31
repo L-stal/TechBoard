@@ -1,2 +1,45 @@
 ﻿body {
 }
+
+.forum-post {
+    text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    transition: 0.2s ease-in-out;
+}
+
+.forum-post:hover {
+    transform: scale(1.02);
+}
+
+.post-link {
+
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.topic {
+    width: 80%;
+}
+
+.post-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.post-description {
+
+}
+
+.replies {
+    width: 20%;
+    text-align: end;
+}
+
+div > * {
+    text-decoration: none;
+}
