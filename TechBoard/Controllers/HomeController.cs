@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using TechBoard.Helper;
 using TechBoard.Models;
 
 namespace TechBoard.Controllers
@@ -7,16 +8,36 @@ namespace TechBoard.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly DataContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, DataContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var dbHelper = new DBhelper(_context);
+            List<Subject> subjects = dbHelper.LoadSubjects();
+            if (subjects == null)
+            {
+                return new NotFoundResult();
+            }
+            return View(subjects);
         }
+
+        public IActionResult Subject(int id)
+        {
+            var dbHelper = new DBhelper(_context);
+            List<Models.Thread> threads = dbHelper.LoadThreads(id);
+            if (threads != null)
+            {
+                return new NotFoundResult();
+            }
+            return View(threads);
+        }
+
 
         public IActionResult Privacy()
         {

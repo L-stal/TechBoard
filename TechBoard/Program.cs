@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TechBoard.Data;
+using TechBoard.Models;
 
 namespace TechBoard
 {
