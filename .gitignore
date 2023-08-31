@@ -1,3 +1,6 @@
 .vs/
 obj/
 bin/
+[Mm]igrations/
+
+appsettings.json
