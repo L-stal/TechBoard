@@ -1,0 +1,16 @@
+﻿@model ThreadViewModel;
+
+<div class="forum-post">
+    <a class="post-link" asp-area="" asp-controller="Posts" asp-action="Index/@Model.Id">
+        <div class="inner-container">
+            <div class="topic">
+
+                <div class="post-title">@Model.Heading</div>
+                <div class="post-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non. </div>
+
+            </div>
+
+            <div class="replies">2</div>
+        </div>
+    </a>
+</div>
