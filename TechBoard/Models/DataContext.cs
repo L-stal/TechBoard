@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TechBoard.Models;
 
-namespace TechBoard.Data
+namespace TechBoard.Models
 {
     public class DataContext : DbContext
     {
@@ -11,7 +10,7 @@ namespace TechBoard.Data
         }
 
         public DbSet<Subject> Subject { get; set; }
-        public DbSet<Models.Thread> Thread { get; set; }
+        public DbSet<Thread> Thread { get; set; }
         public DbSet<Post> Post { get; set; }
 
         //Use once to genreate data in DB
@@ -22,10 +21,10 @@ namespace TechBoard.Data
                 new Subject{Id=2, Title="Software"},
                 new Subject{Id=3, Title="Games"},
             });
-            modelBuilder.Entity<Models.Thread>().HasData(new Models.Thread[] {
-                new Models.Thread{Id=1, Heading="GPU", SubjectRefId=1 },
-                new Models.Thread{Id=2, Heading="OS", SubjectRefId=2},
-                new Models.Thread{Id=3, Heading="WorldOfWarcraft", SubjectRefId=3},
+            modelBuilder.Entity<Thread>().HasData(new Thread[] {
+                new Thread{Id=1, Heading="GPU", SubjectRefId=1 },
+                new Thread{Id=2, Heading="OS", SubjectRefId=2},
+                new Thread{Id=3, Heading="WorldOfWarcraft", SubjectRefId=3},
             });
             modelBuilder.Entity<Post>().HasData(new Post[] {
                 new Post{Id=1, Title="Nvidia", TextBody="Nvidia blabalbla", UserName="GPUuser", ThreadRefId=1 },

@@ -1,6 +1,7 @@
-﻿@model IEnumerable<TechBoard.Models.Subject>
+﻿@model IEnumerable<TechBoard.Models.Thread>
+
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Subject";
 }
 
 <div class="hero">
@@ -10,7 +11,7 @@
     {
         <tr>
             <td>
-                <a href="/Home/Subject/@item.Id">@Html.DisplayFor(modelItem => item.Title)</a>
+                <a href="/Thread/@item.Id">@Html.DisplayFor(modelItem => item.Heading)</a>
             </td>
         </tr>
     }
