@@ -1,60 +1,61 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Web.Razor.Tokenizer;
 using TechBoard.Helper;
 using TechBoard.Models;
+using TechBoard.Models.ViewModels;
 
 namespace TechBoard.Controllers
 {
     public class SubjectController : Controller
     {
         private readonly DataContext _context;
+
         public SubjectController(DataContext context)
         {
             _context = context;
         }
+
         public IActionResult Index(int id)
         {
             var dbHelper = new DBhelper(_context);
-            List<Models.Thread> threads = dbHelper.LoadThreads(id);
-            if (threads != null)
+
+            // Subject
+            Subject subject = dbHelper.LoadSubject(id);
+
+            if (subject == null)
             {
                 return new NotFoundResult();
             }
-            return View(threads);
-        }
 
-        /*public IActionResult Index(string title)
-        public List<ThreadViewModel> GetThreads()
-        {
-            var thread0 = new ThreadViewModel { Id = 0, Heading = "Bästa GPU?", SubjectRefId = 0 };
-            var thread1 = new ThreadViewModel { Id = 1, Heading = "Photoshop version", SubjectRefId = 1 };
-            var thread2 = new ThreadViewModel { Id = 2, Heading = "Senaste uppdateringen av VSCode", SubjectRefId = 1 };
-            var threads = new List<ThreadViewModel> { thread0, thread1, thread2 };
-
-            return threads;
-        }
-
-        public IActionResult Index(string title)
-
-        {
             // Threads
-            var threads = GetThreads();
+            List<Models.Thread> threads = dbHelper.LoadThreads(id);
+            List<ThreadViewModel> threadsViewModel = new List<ThreadViewModel>();
 
-            // Subject
-            title = char.ToUpper(title[0]) + title.Substring(1);
-            Subject subject = new Subject { Id = 1, Title = title };
+            foreach(var thread in threads)
+            {
+                var threadView = new ThreadViewModel
+                {
+                    Id = thread.Id,
+                    Heading = thread.Heading,
+                };
+                threadsViewModel.Add(threadView);
+            }
 
-            Subject subject = new Subject { Id = 1, Title = title };
-            return View(subject);
-        }
+            if (subject == null)
+            {
+                return new NotFoundResult();
+            }
+
             // Combine
             var combined = new SubjectThreadViewModel
             {
-               Threads = threads,
-               Subject = subject
+                Threads = threadsViewModel,
+                Subject = subject,
             };
+
+            Console.WriteLine("Index id: " + id);
             
             return View(combined);
-        }*/
-
+        }
     }
 }

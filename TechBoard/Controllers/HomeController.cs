@@ -27,18 +27,6 @@ namespace TechBoard.Controllers
             return View(subjects);
         }
 
-        public IActionResult Subject(int id)
-        {
-            var dbHelper = new DBhelper(_context);
-            List<Models.Thread> threads = dbHelper.LoadThreads(id);
-            if (threads != null)
-            {
-                return new NotFoundResult();
-            }
-            return View(threads);
-        }
-
-
         public IActionResult Privacy()
         {
             return View();
