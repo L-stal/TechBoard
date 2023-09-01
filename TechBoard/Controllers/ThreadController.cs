@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TechBoard.Controllers
 {
+    /*
     public class ThreadController : Controller
     {
         // GET: ThreadController
@@ -80,4 +81,5 @@ namespace TechBoard.Controllers
             }
         }
     }
+    */
 }

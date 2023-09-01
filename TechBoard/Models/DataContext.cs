@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TechBoard.Models.ViewModels;
 
 namespace TechBoard.Models
 {
@@ -32,6 +33,9 @@ namespace TechBoard.Models
                 new Post{Id=3, Title="Shaman", TextBody="Shaman blabalbla", UserName="WOWuser", ThreadRefId=3 },
             });
         }
+
+        //Use once to genreate data in DB
+        public DbSet<TechBoard.Models.ViewModels.ThreadViewModel>? ThreadViewModel { get; set; }
     }
 }
 

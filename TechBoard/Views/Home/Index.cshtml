@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TechBoard.Models.Subject>
+﻿@model IEnumerable<Subject>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -6,12 +6,14 @@
 <div class="hero">
     <h1>TechBoard</h1>
     <h3>För tekniknördar av tekniknördar</h3>
+
     @foreach (var item in Model)
     {
         <tr>
             <td>
-                <a href="/Home/Subject/@item.Id">@Html.DisplayFor(modelItem => item.Title)</a>
+                <a href="Subject/Index/@item.Id">@Html.DisplayFor(modelItem => item.Title)</a>
             </td>
         </tr>
     }
+
 </div>

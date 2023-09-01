@@ -16,6 +16,11 @@ namespace TechBoard.Helper
             return _context.Subject.ToList();
         }
 
+        public Subject LoadSubject(int subjectId)
+        {
+            return _context.Subject.FirstOrDefault(x => x.Id == subjectId);
+        }
+
         public List<Models.Thread> LoadThreads(int subjectId)
         {
             return _context.Thread.Where(x => x.SubjectRefId == subjectId).ToList();
