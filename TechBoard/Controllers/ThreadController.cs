@@ -1,15 +1,43 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using TechBoard.Helper;
+using TechBoard.Models.ViewModels;
+using TechBoard.Models;
 
 namespace TechBoard.Controllers
 {
-    /*
     public class ThreadController : Controller
     {
-        // GET: ThreadController
-        public ActionResult Index()
+        private readonly DataContext _context;
+
+        public ThreadController(DataContext context)
         {
-            return View();
+            _context = context;
+        }
+        // GET: ThreadController
+        public ActionResult Index(int id)
+        {
+            var dbHelper = new DBhelper(_context);
+
+            // Gets post in thread
+            List<Post> posts = dbHelper.LoadPosts(id);
+            List<PostViewModel> postViewModel = new List<PostViewModel>();
+
+            foreach (var post in posts)
+            {
+                var postView = new PostViewModel
+                {
+                    UserName = post.UserName,
+                    TextBody = post.TextBody,
+                    Title = post.Title,
+
+                };
+                postViewModel.Add(postView);
+
+
+            }
+            return View(postViewModel);
         }
 
         // GET: ThreadController/Details/5
@@ -81,5 +109,4 @@ namespace TechBoard.Controllers
             }
         }
     }
-    */
 }

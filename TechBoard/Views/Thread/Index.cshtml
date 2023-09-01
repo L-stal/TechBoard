@@ -1,0 +1,14 @@
+﻿@model List<PostViewModel>;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div>
+    @foreach (var post in Model)
+    {
+        @Html.Partial("_PostBox", post)
+    }
+</div>
