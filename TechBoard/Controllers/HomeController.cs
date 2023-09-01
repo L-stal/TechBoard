@@ -18,13 +18,8 @@ namespace TechBoard.Controllers
 
         public IActionResult Index()
         {
-            var dbHelper = new DBhelper(_context);
-            List<Subject> subjects = dbHelper.LoadSubjects();
-            if (subjects == null)
-            {
-                return new NotFoundResult();
-            }
-            return View(subjects);
+        
+            return View();
         }
 
         public IActionResult Privacy()
