@@ -8,7 +8,7 @@ namespace TechBoard.ViewComponents
     {
         private readonly DataContext _context;
 
-        public NavBar(  DataContext context)
+        public NavBar(DataContext context)
         {
             _context = context;
         }
@@ -17,7 +17,7 @@ namespace TechBoard.ViewComponents
         {
             var dbHelper = new DBhelper(_context);
             List<Subject> subjects = dbHelper.LoadSubjects();
-      
+
             return View(subjects);
         }
     }
