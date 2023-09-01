@@ -31,7 +31,6 @@ namespace TechBoard.Controllers
                     UserName = post.UserName,
                     TextBody = post.TextBody,
                     Title = post.Title,
-                    ThreadRefId = post.ThreadRefId,
 
                 };
                 postViewModel.Add(postView);
@@ -110,5 +109,4 @@ namespace TechBoard.Controllers
             }
         }
     }
-    */
 }

@@ -1,7 +1,7 @@
 ﻿@model ThreadViewModel;
 
 <div class="forum-post">
-    <a class="post-link" href="Thread/Index/@Model.Id">
+    <a class="post-link" asp-controller="Thread" asp-action="Index" asp-route-id="@Model.Id">
         <div class="inner-container">
             <div class="topic">
 
