@@ -13,6 +13,7 @@ namespace TechBoard.Models
 
         [ForeignKey("Subject")]
         public int SubjectRefId { get; set; }
-        public Subject Subject { get; set; }
+        public virtual Subject Subject { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
     }
 }

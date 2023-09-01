@@ -17,6 +17,6 @@ namespace TechBoard.Models
 
         [ForeignKey("Thread")]
         public int ThreadRefId { get; set; }
-        public Thread Thread { get; set; }
+        public virtual Thread Thread { get; set; }
     }
 }
