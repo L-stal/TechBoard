@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using TechBoard.ViewComponents
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -39,7 +41,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         @* Dummy menu, to be replaced by dynamic menu *@
-                        <li class="nav-item">
+                       @* <li class="nav-item">
                             <a class="nav-link" href="/subject/index?title=mjukvara"><i class="fa-regular fa-comment"></i>Mjukvara</a>
                         </li>
                         <li class="nav-item">
@@ -47,9 +49,11 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/subject/index?title=ai"><i class="fa-regular fa-comment"></i>AI</a>
-                        </li>
+                        </li>*@
+                        @await Component.InvokeAsync(nameof(NavBar))
                     </ul>
-                </div>
+                    
+            </div>
 
         </div>
         <main role="main" class="">
