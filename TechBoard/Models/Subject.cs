@@ -9,5 +9,6 @@ namespace TechBoard.Models
 
         [Required]
         public string Title { get; set; }
+        public virtual ICollection<Thread> Threads { get; set; }
     }
 }

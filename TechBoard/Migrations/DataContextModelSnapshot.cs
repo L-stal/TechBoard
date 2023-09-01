@@ -156,7 +156,7 @@ namespace TechBoard.Migrations
             modelBuilder.Entity("TechBoard.Models.Post", b =>
                 {
                     b.HasOne("TechBoard.Models.Thread", "Thread")
-                        .WithMany()
+                        .WithMany("Posts")
                         .HasForeignKey("ThreadRefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -167,12 +167,22 @@ namespace TechBoard.Migrations
             modelBuilder.Entity("TechBoard.Models.Thread", b =>
                 {
                     b.HasOne("TechBoard.Models.Subject", "Subject")
-                        .WithMany()
+                        .WithMany("Threads")
                         .HasForeignKey("SubjectRefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Subject");
+                });
+
+            modelBuilder.Entity("TechBoard.Models.Subject", b =>
+                {
+                    b.Navigation("Threads");
+                });
+
+            modelBuilder.Entity("TechBoard.Models.Thread", b =>
+                {
+                    b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
         }
