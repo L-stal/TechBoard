@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Subject>
+
+    @foreach (var item in Model)
+    {
+        <li class="nav-item">
+               <a class="nav-link" href="@Url.Action("Index", "Subject", new { id = item.Id })"><i class="fa-regular fa-comment"></i>@Html.DisplayFor(modelItem => item.Title)</a>
+
+
+        </li>
+    }
+
+
