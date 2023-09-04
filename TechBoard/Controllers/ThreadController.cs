@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using TechBoard.Helper;
-using TechBoard.Models.ViewModels;
 using TechBoard.Models;
+using TechBoard.Models.ViewModels;
 
 namespace TechBoard.Controllers
 {
@@ -21,23 +19,11 @@ namespace TechBoard.Controllers
             var dbHelper = new DBhelper(_context);
 
             // Gets post in thread
-            List<Post> posts = dbHelper.LoadPosts(id);
-            List<PostViewModel> postViewModel = new List<PostViewModel>();
+            List<ThreadPostViewModel> posts = new List<ThreadPostViewModel>();
 
-            foreach (var post in posts)
-            {
-                var postView = new PostViewModel
-                {
-                    UserName = post.UserName,
-                    TextBody = post.TextBody,
-                    Title = post.Title,
+            posts = dbHelper.LoadPosts(id);
 
-                };
-                postViewModel.Add(postView);
-
-
-            }
-            return View(postViewModel);
+            return View(posts);
         }
 
         // GET: ThreadController/Details/5
