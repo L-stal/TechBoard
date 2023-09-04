@@ -1,12 +1,11 @@
-﻿@model ThreadViewModel;
+﻿@model SubjectThreadViewModel;
 
 <div class="forum-post">
-    <a class="post-link" asp-controller="Thread" asp-action="Index" asp-route-id="@Model.Id">
+    <a class="post-link" asp-controller="Thread" asp-action="Index" asp-route-id="@Model.ThreadId">
         <div class="inner-container">
             <div class="topic">
 
-                <div class="post-title">@Model.Heading</div>
-                <div class="post-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non. </div>
+                <div class="post-title">@Model.ThreadHeading</div>
 
             </div>
 

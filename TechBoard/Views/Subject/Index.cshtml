@@ -1,18 +1,19 @@
-﻿@model SubjectThreadViewModel;
+﻿@model List<SubjectThreadViewModel>;
 
-<h1>@Model.Subject.Title</h1>
-<p>Id: @Model.Subject.Id</p>
+<h1>@Model[0].SubjectTitle</h1>
 
 <div class="forum">
+
     <div class="forum-header">
         <h4>Topic</h4>
         <h4>Replies</h4>
-
     </div>
 
-    @foreach (var thread in Model.Threads)
+    @foreach (var thread in Model)
     {
+
         @Html.Partial("_ThreadBox", thread)
+
     }
 
 </div>
