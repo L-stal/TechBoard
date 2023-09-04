@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Web.Razor.Tokenizer;
 using TechBoard.Helper;
 using TechBoard.Models;
 using TechBoard.Models.ViewModels;
@@ -20,42 +19,18 @@ namespace TechBoard.Controllers
             var dbHelper = new DBhelper(_context);
 
             // Subject
-            Subject subject = dbHelper.LoadSubject(id);
+            /*Subject subject = dbHelper.LoadSubject(id);
 
             if (subject == null)
             {
                 return new NotFoundResult();
-            }
+            }*/
 
-            // Threads
-            List<Models.Thread> threads = dbHelper.LoadThreads(id);
-            List<ThreadViewModel> threadsViewModel = new List<ThreadViewModel>();
+            List<SubjectThreadViewModel> threads = new List<SubjectThreadViewModel>();
 
-            foreach(var thread in threads)
-            {
-                var threadView = new ThreadViewModel
-                {
-                    Id = thread.Id,
-                    Heading = thread.Heading,
-                };
-                threadsViewModel.Add(threadView);
-            }
+            threads = dbHelper.LoadThreads(id);
 
-            if (subject == null)
-            {
-                return new NotFoundResult();
-            }
-
-            // Combine
-            var combined = new SubjectThreadViewModel
-            {
-                Threads = threadsViewModel,
-                Subject = subject,
-            };
-
-            Console.WriteLine("Index id: " + id);
-            
-            return View(combined);
+            return View(threads);
         }
     }
 }

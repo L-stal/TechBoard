@@ -2,7 +2,8 @@
 {
     public class SubjectThreadViewModel
     {
-        public List<ThreadViewModel> Threads { get; set; }
-        public Subject Subject { get; set; }
+        public string SubjectTitle { get; set; }
+        public string ThreadHeading { get; set; }
+        public int ThreadId { get; set; }
     }
 }
