@@ -19,9 +19,7 @@ namespace TechBoard.Controllers
             var dbHelper = new DBhelper(_context);
 
             // Gets post in thread
-            List<ThreadPostViewModel> posts = new List<ThreadPostViewModel>();
-
-            posts = dbHelper.LoadPosts(id);
+            List<ThreadPostViewModel> posts = dbHelper.LoadPosts(id);
 
             return View(posts);
         }

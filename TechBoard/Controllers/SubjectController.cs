@@ -18,17 +18,7 @@ namespace TechBoard.Controllers
         {
             var dbHelper = new DBhelper(_context);
 
-            // Subject
-            /*Subject subject = dbHelper.LoadSubject(id);
-
-            if (subject == null)
-            {
-                return new NotFoundResult();
-            }*/
-
-            List<SubjectThreadViewModel> threads = new List<SubjectThreadViewModel>();
-
-            threads = dbHelper.LoadThreads(id);
+            List<SubjectThreadViewModel> threads = dbHelper.LoadThreads(id);
 
             return View(threads);
         }
