@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TechBoard.Helper;
 using TechBoard.Models;
+using TechBoard.Models.ViewModels;
 
 namespace TechBoard.ViewComponents
 {
@@ -16,7 +17,7 @@ namespace TechBoard.ViewComponents
         public IViewComponentResult Invoke()
         {
             var dbHelper = new DBhelper(_context);
-            List<Subject> subjects = dbHelper.LoadSubjects();
+            List<SubjectViewModel> subjects = dbHelper.LoadSubjects();
 
             return View(subjects);
         }

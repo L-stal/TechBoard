@@ -12,23 +12,28 @@ namespace TechBoard.Helper
             _context = context;
         }
 
-        public List<Subject> LoadSubjects()
+        public List<SubjectViewModel> LoadSubjects()
         {
-            return _context.Subject.ToList();
-        }
+            var subjects = _context.Subject
+                .Select(subject => new SubjectViewModel
+                {
+                    Id = subject.Id,
+                    Title = subject.Title,
+                }
+            )
+            .ToList();
 
-        public Subject LoadSubject(int subjectId)
-        {
-            return _context.Subject.FirstOrDefault(x => x.Id == subjectId);
+            return subjects;
         }
 
         public List<SubjectThreadViewModel> LoadThreads(int subjectId)
         {
             var threadsAndSubjects = _context.Thread
+                                    .Where(thread => thread.SubjectRefId == subjectId)
                                     .Join(
                                         _context.Subject,
                                         thread => thread.SubjectRefId,
-                                        subject => subjectId,
+                                        subject => subject.Id,
                                         (thread, subject) => new SubjectThreadViewModel
                                         {
                                             // Select the properties you need from both tables
@@ -45,10 +50,11 @@ namespace TechBoard.Helper
         public List<ThreadPostViewModel> LoadPosts(int threadId)
         {
             var postAndThread = _context.Post
+                                    .Where(post => post.ThreadRefId == threadId)
                                     .Join(
                                         _context.Thread,
                                         post => post.ThreadRefId,
-                                        thread => threadId,
+                                        thread => thread.Id,
                                         (post, thread) => new ThreadPostViewModel
                                         {
                                             // Select the properties you need from both tables
