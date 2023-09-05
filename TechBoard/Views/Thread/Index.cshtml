@@ -3,9 +3,15 @@
 @{
     ViewData["Title"] = "Index";
 }
-fukin hell plz work
-<h1>Post</h1>
-@Html.Partial("_Create" , new ThreadPostViewModel())
+@{
+    int currentThreadId = 0;
+    if (Model.Any())
+    {
+
+        currentThreadId = Model[0].ThreadRefId;
+    }
+}
+@Html.Partial("_Create" , new ThreadPostViewModel{ThreadRefId = currentThreadId })
 <div>
     @foreach (var post in Model)
     {

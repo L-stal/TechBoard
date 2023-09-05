@@ -48,18 +48,20 @@ namespace TechBoard.Controllers
                     TextBody = post.TextBody,
                     Title = post.PostTitle,
                     UserName = post.UserName,
+                    ThreadRefId = post.ThreadRefId,
                 };
                 try
                 {
 
                    dbHelper.AddPost(newPost);
-                    return RedirectToAction("Index" , "Thread" , newPost.ThreadRefId);
+
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex.Message);
                     throw; 
                 }
+                return RedirectToAction("Index", "Thread", new { id = post.ThreadRefId });
             }
             var errors = ModelState
     .Where(x => x.Value.Errors.Count > 0)

@@ -7,7 +7,9 @@ namespace TechBoard.Models.ViewModels
         public string PostTitle { get; set; }
         public string TextBody { get; set; }
         public int PostId { get; set; }
-        public string UserName { get; set; }    
+        public string UserName { get; set; }   
+        
+        public int ThreadRefId { get; set; }
 
     }
 }
