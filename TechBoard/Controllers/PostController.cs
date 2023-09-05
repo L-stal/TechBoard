@@ -46,10 +46,8 @@ namespace TechBoard.Controllers
                 var newPost = new Post
                 {
                     TextBody = post.TextBody,
-                    ThreadRefId = post.ThreadRefId,
                     Title = post.PostTitle,
-
-
+                    UserName = post.UserName,
                 };
                 try
                 {
@@ -63,7 +61,13 @@ namespace TechBoard.Controllers
                     throw; 
                 }
             }
-            return RedirectToAction("Index", "Thread", post.ThreadRefId);
+            var errors = ModelState
+    .Where(x => x.Value.Errors.Count > 0)
+    .Select(x => new { x.Key, x.Value.Errors })
+    .ToArray();
+
+            Debug.WriteLine(errors + "!!!!!!!!!!!!!!!!!!");
+            return RedirectToAction("Index");
         }
 
         // GET: PostController/Edit/5

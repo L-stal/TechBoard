@@ -60,7 +60,6 @@ namespace TechBoard.Helper
                                             // Select the properties you need from both tables
                                             PostId = thread.Id,
                                             PostTitle = post.Title,
-                                            ThreadHeading = thread.Heading,
                                             TextBody = post.TextBody
                                         }
                                     )
@@ -100,8 +99,7 @@ namespace TechBoard.Helper
         }
         public void AddPost(Post newpost)
         { 
-            Post post = _context.Post;
-            post.Add(newPost);
+            _context.Post.Add(newpost);
             _context.SaveChanges(); 
         }
     }
