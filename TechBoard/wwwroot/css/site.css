@@ -55,3 +55,43 @@ a {
         font-size: 1.5rem;
         font-weight: 400;
     }
+body {
+}
+
+.forum-post {
+    text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    transition: 0.2s ease-in-out;
+}
+
+    .forum-post:hover {
+        transform: scale(1.02);
+    }
+
+.inner-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.topic {
+    width: 80%;
+}
+
+.post-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.post-description {
+}
+
+.replies {
+    width: 20%;
+    text-align: end;
+}
+
+div > * {
+    text-decoration: none;
+}

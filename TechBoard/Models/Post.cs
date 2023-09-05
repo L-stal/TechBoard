@@ -12,8 +12,6 @@ namespace TechBoard.Models
         [Required]
         [DataType(DataType.MultilineText)]
         public string TextBody { get; set; }
-        [Required]
-        public string UserName { get; set; }
 
         [ForeignKey("Thread")]
         public int ThreadRefId { get; set; }
