@@ -68,5 +68,35 @@ namespace TechBoard.Helper
 
             return postAndThread;
         }
+
+        //Edit data in post
+        public void EditPost(int postId, string textBody, string? title)
+        {
+            Post post = (from x in _context.Post
+                         where x.Id == postId
+                         select x).First();
+            post.TextBody = textBody;
+            if (title != null)
+                post.Title = title;
+            _context.SaveChanges();
+        }
+
+        public void EditThread(int threadId, string heading)
+        {
+            Models.Thread thread = (from x in _context.Thread
+                                    where x.Id == threadId
+                                    select x).First();
+            thread.Heading = heading;
+            _context.SaveChanges();
+        }
+
+        public void EditSubject(int subjectId, string title)
+        {
+            Subject subject = (from x in _context.Subject
+                               where x.Id == subjectId
+                               select x).First();
+            subject.Title = title;
+            _context.SaveChanges();
+        }
     }
 }
