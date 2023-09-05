@@ -98,5 +98,11 @@ namespace TechBoard.Helper
             subject.Title = title;
             _context.SaveChanges();
         }
+        public void AddPost(Post newpost)
+        { 
+            Post post = _context.Post;
+            post.Add(newPost);
+            _context.SaveChanges(); 
+        }
     }
 }

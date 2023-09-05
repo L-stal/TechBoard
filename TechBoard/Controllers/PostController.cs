@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Diagnostics;
 using TechBoard.Helper;
 using TechBoard.Models;
 using TechBoard.Models.ViewModels;
@@ -8,6 +10,12 @@ namespace TechBoard.Controllers
 {
     public class PostController : Controller
     {
+        private readonly DataContext _context;
+
+        public PostController(DataContext context)
+        {
+            _context = context;
+        }
         // GET: PostController
         public ActionResult Index()
         {
@@ -31,14 +39,31 @@ namespace TechBoard.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ThreadPostViewModel post)
         {
-            try
+            var dbHelper = new DBhelper(_context);
+
+            if (ModelState.IsValid) 
             {
-                return RedirectToAction(nameof(Index));
+                var newPost = new Post
+                {
+                    TextBody = post.TextBody,
+                    ThreadRefId = post.ThreadRefId,
+                    Title = post.PostTitle,
+
+
+                };
+                try
+                {
+
+                   dbHelper.AddPost(newPost);
+                    return RedirectToAction("Index" , "Thread" , newPost.ThreadRefId);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                    throw; 
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index", "Thread", post.ThreadRefId);
         }
 
         // GET: PostController/Edit/5
