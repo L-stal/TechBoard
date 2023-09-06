@@ -7,13 +7,13 @@ namespace TechBoard.Models
     {
         [Key]
         public int Id { get; set; }
-
-        public string Title { get; set; }
+        public string? UserName { get; set; }
+    public string Title { get; set; }
         [Required]
         [DataType(DataType.MultilineText)]
         public string TextBody { get; set; }
-        [Required]
-        public string UserName { get; set; }
+
+
 
         [ForeignKey("Thread")]
         public int ThreadRefId { get; set; }

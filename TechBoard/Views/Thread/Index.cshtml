@@ -3,12 +3,19 @@
 @{
     ViewData["Title"] = "Index";
 }
+@{
+    int currentThreadId = 0;
+    if (Model.Any())
+    {
 
-<h1>Index</h1>
-
+        currentThreadId = Model[0].ThreadRefId;
+    }
+}
+@Html.Partial("_Create" , new ThreadPostViewModel{ThreadRefId = currentThreadId })
 <div>
     @foreach (var post in Model)
     {
         @Html.Partial("_PostBox", post)
+        //Add buttom for replies
     }
 </div>

@@ -60,8 +60,9 @@ namespace TechBoard.Helper
                                             // Select the properties you need from both tables
                                             PostId = thread.Id,
                                             PostTitle = post.Title,
-                                            ThreadHeading = thread.Heading,
-                                            TextBody = post.TextBody
+                                            TextBody = post.TextBody,
+                                            ThreadRefId = thread.Id,
+                                            
                                         }
                                     )
                                     .ToList(); // Materialize the query to a list
@@ -96,6 +97,11 @@ namespace TechBoard.Helper
                                where x.Id == subjectId
                                select x).First();
             subject.Title = title;
+            _context.SaveChanges();
+        }
+        public void AddPost(Post newpost)
+        { 
+            _context.Post.Add(newpost);
             _context.SaveChanges();
         }
     }

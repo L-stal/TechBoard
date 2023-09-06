@@ -1,0 +1,34 @@
+﻿@model TechBoard.Models.ViewModels.ThreadPostViewModel
+
+<h4>Post @Model.ThreadRefId </h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+          <input type="hidden" asp-for="ThreadRefId" value="@Model.ThreadRefId" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PostTitle" class="control-label"></label>
+                <input asp-for="PostTitle" class="form-control" />
+                <span asp-validation-for="PostTitle" class="text-danger"></span>
+            </div>
+                        <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TextBody" class="control-label"></label>
+                <textarea asp-for="TextBody" class="form-control"></textarea>
+                <span asp-validation-for="TextBody" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                    <input asp-controller="Post" asp-action="Create" type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
