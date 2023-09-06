@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using TechBoard.Helper;
 using TechBoard.Models;
@@ -17,22 +15,6 @@ namespace TechBoard.Controllers
             _context = context;
         }
         // GET: PostController
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: PostController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: PostController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
 
         // POST: PostController/Create
         [HttpPost]
@@ -41,25 +23,24 @@ namespace TechBoard.Controllers
         {
             var dbHelper = new DBhelper(_context);
 
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 var newPost = new Post
                 {
                     TextBody = post.TextBody,
                     Title = post.PostTitle,
-                    UserName = post.UserName,
                     ThreadRefId = post.ThreadRefId,
                 };
                 try
                 {
 
-                   dbHelper.AddPost(newPost);
+                    dbHelper.AddPost(newPost);
 
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex.Message);
-                    throw; 
+                    throw;
                 }
                 return RedirectToAction("Index", "Thread", new { id = post.ThreadRefId });
             }
@@ -72,14 +53,8 @@ namespace TechBoard.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: PostController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
         // POST: PostController/Edit/5
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
         {
@@ -97,10 +72,10 @@ namespace TechBoard.Controllers
         public ActionResult Delete(int id)
         {
             return View();
-        }
+        }*/
 
         // POST: PostController/Delete/5
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
@@ -112,6 +87,6 @@ namespace TechBoard.Controllers
             {
                 return View();
             }
-        }
+        }*/
     }
 }

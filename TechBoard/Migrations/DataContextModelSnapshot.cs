@@ -40,10 +40,6 @@ namespace TechBoard.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ThreadRefId");
@@ -56,24 +52,21 @@ namespace TechBoard.Migrations
                             Id = 1,
                             TextBody = "Nvidia blabalbla",
                             ThreadRefId = 1,
-                            Title = "Nvidia",
-                            UserName = "GPUuser"
+                            Title = "Nvidia"
                         },
                         new
                         {
                             Id = 2,
                             TextBody = "Windows blabalbla",
                             ThreadRefId = 2,
-                            Title = "Windows",
-                            UserName = "OSuser"
+                            Title = "Windows"
                         },
                         new
                         {
                             Id = 3,
                             TextBody = "Shaman blabalbla",
                             ThreadRefId = 3,
-                            Title = "Shaman",
-                            UserName = "WOWuser"
+                            Title = "Shaman"
                         });
                 });
 
