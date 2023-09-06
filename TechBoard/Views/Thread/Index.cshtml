@@ -10,7 +10,7 @@
 
         currentThreadId = Model[0].ThreadRefId;
     }
-}
+ }
 @Html.Partial("_Create" , new ThreadPostViewModel{ThreadRefId = currentThreadId })
 <div>
     @foreach (var post in Model)
