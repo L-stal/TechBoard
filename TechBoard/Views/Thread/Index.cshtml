@@ -7,9 +7,9 @@
     int currentThreadId = 0;
     if (Model.Any())
     {
-
         currentThreadId = Model[0].ThreadRefId;
     }
+
  }
 @Html.Partial("_Create" , new ThreadPostViewModel{ThreadRefId = currentThreadId })
 <div>

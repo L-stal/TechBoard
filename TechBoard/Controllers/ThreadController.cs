@@ -1,5 +1,6 @@
 ﻿using Humanizer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using System.Diagnostics;
 using TechBoard.Helper;
 using TechBoard.Models;
@@ -53,10 +54,16 @@ namespace TechBoard.Controllers
                     SubjectRefId = thread.SubjectRefId,
 
                 };
+                var newThreadPost = new Post
+                {
+                    TextBody = thread.TextBody,
+                    Title = thread.PostTitle,
+                    ThreadRefId = thread.ThreadRefId,
+                };
 
                 try
                 {
-                    dbHelper.AddThread(newThread);
+                    dbHelper.AddThreadPost(newThread , newThreadPost);
                 }
                 catch (Exception ex)
                 {
@@ -65,10 +72,10 @@ namespace TechBoard.Controllers
                 }
                 return RedirectToAction("Index", "Subject", new { id = thread.SubjectRefId });
             }
-            var errors = ModelState
-.Where(x => x.Value.Errors.Count > 0)
-.Select(x => new { x.Key, x.Value.Errors })
-.ToArray();
+               var errors = ModelState
+               .Where(x => x.Value.Errors.Count > 0)
+               .Select(x => new { x.Key, x.Value.Errors })
+               .ToArray();
 
             Debug.WriteLine(errors + "!!!!!!!!!!!!!!!!!!");
             return RedirectToAction("Index");

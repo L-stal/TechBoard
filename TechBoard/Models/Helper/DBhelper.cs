@@ -109,5 +109,11 @@ namespace TechBoard.Helper
             _context.Thread.Add(newThread);
             _context.SaveChanges();
         }
+        public void AddThreadPost(Models.Thread newThread , Post newThreadPost)
+        {
+            _context.Post.Add(newThreadPost);
+            _context.Thread.Add(newThread);
+            _context.SaveChanges();
+        }
     }
 }
