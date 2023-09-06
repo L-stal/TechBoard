@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Humanizer;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using TechBoard.Helper;
 using TechBoard.Models;
 using TechBoard.Models.ViewModels;
@@ -39,16 +41,37 @@ namespace TechBoard.Controllers
         // POST: ThreadController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(SubjectThreadViewModel thread)   
         {
-            try
+            var dbHelper = new DBhelper(_context);
+
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                var newThread = new Models.Thread
+                {
+                    Heading = thread.ThreadHeading,
+                    SubjectRefId = thread.SubjectRefId,
+
+                };
+
+                try
+                {
+                    dbHelper.AddThread(newThread);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                    throw;
+                }
+                return RedirectToAction("Index", "Subject", new { id = thread.SubjectRefId });
             }
-            catch
-            {
-                return View();
-            }
+            var errors = ModelState
+.Where(x => x.Value.Errors.Count > 0)
+.Select(x => new { x.Key, x.Value.Errors })
+.ToArray();
+
+            Debug.WriteLine(errors + "!!!!!!!!!!!!!!!!!!");
+            return RedirectToAction("Index");
         }
 
         // GET: ThreadController/Edit/5
