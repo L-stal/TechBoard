@@ -38,8 +38,8 @@ namespace TechBoard.Helper
                                         {
                                             // Select the properties you need from both tables
                                             ThreadId = thread.Id,
-                                            SubjectTitle = subject.Title,
                                             ThreadHeading = thread.Heading,
+                                            SubjectRefId = subject.Id,
                                         }
                                     )
                                     .ToList(); // Materialize the query to a list
@@ -102,6 +102,21 @@ namespace TechBoard.Helper
         public void AddPost(Post newpost)
         { 
             _context.Post.Add(newpost);
+            _context.SaveChanges();
+        }
+        public void AddThread(Models.Thread newThread)
+        {
+            _context.Thread.Add(newThread);
+            _context.SaveChanges();
+        }
+        public void AddThreadPost(Models.Thread newThread, Post newThreadPost)
+        {
+            // Set the relationship between Thread and Post
+            newThread.Posts = new List<Post> { newThreadPost };
+            newThreadPost.Thread = newThread;
+
+            _context.Post.Add(newThreadPost);
+            _context.Thread.Add(newThread);
             _context.SaveChanges();
         }
     }
