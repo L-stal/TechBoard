@@ -11,8 +11,6 @@ namespace TechBoard.Models.ViewModels
         [Required(ErrorMessage = "Skriv en text!")]
         public string TextBody { get; set; }
         public int PostId { get; set; }
-        [Required(ErrorMessage = "Skriv ett username")]
-        public string UserName { get; set; }   
         
         public int ThreadRefId { get; set; }
 
