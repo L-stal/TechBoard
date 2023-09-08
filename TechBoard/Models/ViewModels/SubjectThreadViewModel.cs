@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TechBoard.Models.ViewModels
 {
@@ -16,6 +17,7 @@ namespace TechBoard.Models.ViewModels
         [DataType(DataType.MultilineText)]
         public string TextBody { get; set; }
         [DisplayName("Heading (optional)")]
-        public string PostTitle { get; set; }
+        [AllowNull]
+        public string? PostTitle { get; set; }
     }
 }
