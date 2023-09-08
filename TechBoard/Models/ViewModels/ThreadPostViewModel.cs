@@ -1,12 +1,14 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TechBoard.Models.ViewModels
 {
     public class ThreadPostViewModel
     {
         [DisplayName("Heading (optional)")]
-        public string PostTitle { get; set; }
+        [AllowNull]
+        public string? PostTitle { get; set; }
 
         [Required(ErrorMessage = "Skriv en text!")]
         [DisplayName("Post")]

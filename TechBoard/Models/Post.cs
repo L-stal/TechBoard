@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TechBoard.Models
 {
@@ -7,7 +8,8 @@ namespace TechBoard.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Title { get; set; }
+        [AllowNull]
+        public string? Title { get; set; }
         [Required]
         [DataType(DataType.MultilineText)]
         public string TextBody { get; set; }
