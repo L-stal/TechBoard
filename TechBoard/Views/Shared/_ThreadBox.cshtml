@@ -1,6 +1,6 @@
 ﻿@model SubjectThreadViewModel;
 
-<div class="forum-post">
+<div class="forum-thread">
     <a class="post-link" asp-controller="Thread" asp-action="Index" asp-route-id="@Model.ThreadId">
         <div class="inner-container">
             <div class="topic">
@@ -8,8 +8,6 @@
                 <div class="post-title">@Model.ThreadHeading</div>
 
             </div>
-
-            <div class="replies">2</div>
         </div>
     </a>
 </div>

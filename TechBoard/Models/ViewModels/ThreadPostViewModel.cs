@@ -6,6 +6,8 @@ namespace TechBoard.Models.ViewModels
 {
     public class ThreadPostViewModel
     {
+        public string ThreadHeading { get; set; }
+
         [DisplayName("Inläggsrubrik (valfritt)")]
         [AllowNull]
         public string? PostTitle { get; set; }
