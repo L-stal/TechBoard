@@ -40,6 +40,7 @@ namespace TechBoard.Helper
                                             ThreadId = thread.Id,
                                             ThreadHeading = thread.Heading,
                                             SubjectRefId = subject.Id,
+                                            SubjectTitle = subject.Title,
                                         }
                                     )
                                     .ToList(); // Materialize the query to a list

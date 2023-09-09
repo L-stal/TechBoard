@@ -6,12 +6,12 @@ namespace TechBoard.Models.ViewModels
 {
     public class ThreadPostViewModel
     {
-        [DisplayName("Heading (optional)")]
+        [DisplayName("Inläggsrubrik (valfritt)")]
         [AllowNull]
         public string? PostTitle { get; set; }
 
         [Required(ErrorMessage = "Skriv en text!")]
-        [DisplayName("Post")]
+        [DisplayName("Innehåll")]
         public string TextBody { get; set; }
         public int PostId { get; set; }
         public int ThreadRefId { get; set; }

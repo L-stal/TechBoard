@@ -1,11 +1,8 @@
 ﻿@model List<SubjectThreadViewModel>;
 
-
-
 <div class="forum">
     <div class="forum-header">
-        <h4>Topic</h4>
-        <h4>Replies </h4>
+        <h1>@Model[0].SubjectTitle</h1>
     </div>
     @{
         int currentSubjectId = 0;
