@@ -6,18 +6,25 @@ namespace TechBoard.Models.ViewModels
 {
     public class SubjectThreadViewModel
     {
-        [Required(ErrorMessage = "Skriv en title!")]
-        [DisplayName("Topic")]
+        public string SubjectTitle { get; set; }
+
+        [Required(ErrorMessage = "Skriv en titel!")]
+        [DisplayName("Tråd titel")]
         public string ThreadHeading { get; set; }
+
+        [DisplayName("Inläggsrubrik (valfritt)")]
+        [AllowNull]
+        public string? PostTitle { get; set; }
+
         public int ThreadId { get; set; }
+
         public int ThreadRefId { get; set; }
+
         public int SubjectRefId { get; set; }
-        [DisplayName("Post")]
+
+        [DisplayName("Innehåll")]
         [Required(ErrorMessage = "Skriv en text!")]
         [DataType(DataType.MultilineText)]
         public string TextBody { get; set; }
-        [DisplayName("Heading (optional)")]
-        [AllowNull]
-        public string? PostTitle { get; set; }
     }
 }

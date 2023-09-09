@@ -1,15 +1,9 @@
-﻿@model TechBoard.Models.ViewModels.SubjectThreadViewModel
+﻿@model TechBoard.Models.ViewModels.ThreadPostViewModel
 
 <div class="form-container">
-    <form asp-action="Create"  method="post">
-        <input type="hidden" asp-for="SubjectRefId" value="@Model.SubjectRefId" />
+    <form asp-action="Create" method="post">
         <input type="hidden" asp-for="ThreadRefId" value="@Model.ThreadRefId" />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-inner-container">
-            <label asp-for="ThreadHeading" class="control-label"></label>
-            <input asp-for="ThreadHeading" class="form-control" />
-            <span asp-validation-for="ThreadHeading" class="text-danger"></span>
-        </div>
         <div class="form-inner-container">
             <label asp-for="PostTitle" class="control-label"></label>
             <input asp-for="PostTitle" class="form-control" />
@@ -17,12 +11,11 @@
         </div>
         <div class="form-inner-container">
             <label asp-for="TextBody" class="control-label"></label>
-            <textarea rows="4" input asp-for="TextBody" class="form-control"></textarea>
+            <textarea asp-for="TextBody" class="form-control"></textarea>
             <span asp-validation-for="TextBody" class="text-danger"></span>
         </div>
         <div class="form-inner-container">
-            <input asp-controller="Thread" asp-action="Create" type="submit" value="Skapa" class="btn btn-primary" />
+            <input asp-controller="Post" asp-action="Create" type="submit" value="Skapa" class="btn btn-primary" />
         </div>
     </form>
 </div>
-

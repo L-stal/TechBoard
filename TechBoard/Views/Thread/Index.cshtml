@@ -1,21 +1,35 @@
 ﻿@model List<ThreadPostViewModel>;
 
 @{
-    ViewData["Title"] = "Index";
-}
-@{
     int currentThreadId = 0;
+
     if (Model.Any())
     {
         currentThreadId = Model[0].ThreadRefId;
     }
-
  }
-@Html.Partial("_Create" , new ThreadPostViewModel{ThreadRefId = currentThreadId })
-<div>
+
+<div class="forum">
+
+    <div class="forum-header">
+        <h1>@Model[0].ThreadHeading</h1>
+    </div>
+
+    <div class="forum-sub-header">
+        <h5>Skapa ett nytt inlägg</h5>
+    </div>
+
+    @Html.Partial("_CreatePost" , new ThreadPostViewModel{ThreadRefId = currentThreadId })
+
+    <div class="forum-sub-header">
+        <h5>Inlägg</h5>
+        <p>Sorterat efter: äldst först</p>
+    </div>
+
     @foreach (var post in Model)
     {
         @Html.Partial("_PostBox", post)
         //Add buttom for replies
     }
+
 </div>

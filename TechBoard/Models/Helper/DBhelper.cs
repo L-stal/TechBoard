@@ -40,6 +40,7 @@ namespace TechBoard.Helper
                                             ThreadId = thread.Id,
                                             ThreadHeading = thread.Heading,
                                             SubjectRefId = subject.Id,
+                                            SubjectTitle = subject.Title,
                                         }
                                     )
                                     .ToList(); // Materialize the query to a list
@@ -62,6 +63,7 @@ namespace TechBoard.Helper
                                             PostTitle = post.Title,
                                             TextBody = post.TextBody,
                                             ThreadRefId = thread.Id,
+                                            ThreadHeading = thread.Heading,
                                         }
                                     )
                                     .ToList(); // Materialize the query to a list

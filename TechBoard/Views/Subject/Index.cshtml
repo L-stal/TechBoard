@@ -1,26 +1,34 @@
 ﻿@model List<SubjectThreadViewModel>;
 
+@{
+    int currentSubjectId = 0;
 
+    if (Model.Any())
+    {
+        currentSubjectId = Model[0].SubjectRefId;
+    }
+        
+}
 
 <div class="forum">
-    <div class="forum-header">
-        <h4>Topic</h4>
-        <h4>Replies </h4>
-    </div>
-    @{
-        int currentSubjectId = 0;
-        if (Model.Any())
-        {
 
-            currentSubjectId = Model[0].SubjectRefId;
-        }
-        
-    }
+    <div class="forum-header">
+        <h1>@Model[0].SubjectTitle</h1>
+    </div>
+
+    <div class="forum-sub-header">
+        <h5>Skapa en ny tråd</h5>
+    </div>
+
     @Html.Partial("_CreateThread" , new SubjectThreadViewModel{SubjectRefId = currentSubjectId })
+
+    <div class="forum-sub-header">
+        <h5>Trådar</h5>
+        <p>Sorterat efter: äldst först</p>
+    </div>
 
     @foreach (var thread in Model)
     {
-
         @Html.Partial("_ThreadBox", thread)
 
     }
