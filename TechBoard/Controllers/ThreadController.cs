@@ -82,7 +82,7 @@ namespace TechBoard.Controllers
                .ToArray();
 
             Debug.WriteLine(errors + "!!!!!!!!!!!!!!!!!!");
-            return RedirectToAction("Index");
+            return RedirectToAction("Error","Home");
         }
 
         // GET: ThreadController/Edit/5
