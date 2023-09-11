@@ -24,6 +24,10 @@ namespace TechBoard.Controllers
             // Gets post in thread
             List<ThreadPostViewModel> posts = dbHelper.LoadPosts(id);
 
+            var thread = posts.Where(post => post.ThreadRefId == id).FirstOrDefault();
+
+            ViewBag.ThreadHeading = thread.ThreadHeading;
+
             return View(posts);
         }
 

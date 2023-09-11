@@ -20,6 +20,12 @@ namespace TechBoard.Controllers
 
             List<SubjectThreadViewModel> threads = dbHelper.LoadThreads(id);
 
+            List<SubjectViewModel> subjects = dbHelper.LoadSubjects();
+
+            var subject = subjects.Where(subject => subject.Id == id).FirstOrDefault();
+
+            ViewBag.SubjectTitle = subject.Title;
+
             return View(threads);
         }
     }

@@ -1,6 +1,6 @@
 ﻿@model List<SubjectThreadViewModel>;
 
-@{
+@{ 
     int currentSubjectId = 0;
 
     if (Model.Any())
@@ -13,7 +13,7 @@
 <div class="forum">
 
     <div class="forum-header">
-        <h1>@Model[0].SubjectTitle</h1>
+        <h1>@ViewBag.SubjectTitle</h1>
     </div>
 
     <div class="forum-sub-header">
