@@ -6,8 +6,6 @@ namespace TechBoard.Models.ViewModels
 {
     public class SubjectThreadViewModel
     {
-        public string SubjectTitle { get; set; }
-
         [Required(ErrorMessage = "Skriv en titel!")]
         [DisplayName("Tråd titel")]
         public string ThreadHeading { get; set; }
